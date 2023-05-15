@@ -26,12 +26,12 @@ p {
   margin-bottom: 0;
 }
 
-/* ul,
+ul,
 ol {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
-} */
+}
 
 img {
   display: block;
@@ -53,38 +53,39 @@ button {
   text-decoration: none;
 }
 
-.page-box {
-  overflow: hidden;
-}
-
 .container {
-  min-width: 320px;
-  max-width: 428px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   padding-left: 16px;
   padding-right: 16px;
 
-  outline: 2px solid red;
-  outline-offset: -2px;
+  /* outline: 1px solid red; */
 }
 
-@media only screen and (min-width: 430px) {
+@media only screen and (min-width: 480px) {
   .container {
-    max-width: 768px;
+    width: 428px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 768px;
   }
 }
 
 @media only screen and (min-width: 1158px) {
   .container {
-    max-width: 1158px;
+    width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
 /*===== Header =====*/
 
 .page-header {
-  width: 100%;
   border-bottom: 1px solid #e7e9fc;
   box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
@@ -93,7 +94,7 @@ button {
 .header-container {
   display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .page-nav {
@@ -254,8 +255,6 @@ button {
 /*===== Hero =====*/
 
 .hero-section {
-  /* max-width: 1440px; */
-
   margin-left: auto;
   margin-right: auto;
   padding-top: 188px;
@@ -381,26 +380,23 @@ button {
 .feature-list {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 72px;
-}
-
-@media only screen and (min-width: 768px) {
-  .feature-list {
-  }
+  column-gap: 24px;
 }
 
 @media only screen and (min-width: 1158px) {
   .feature-list {
-    flex-direction: unset;
+    flex-wrap: nowrap;
     gap: 24px;
   }
 }
 
-/* .feature-item {
-  width: calc((100% - 72px) / 4);
-} */
+@media only screen and (min-width: 768px) {
+  .feature-item {
+    width: 356px;
+  }
+}
 
 .feature-social-icon {
   display: flex;
@@ -419,20 +415,11 @@ button {
 }
 
 .feature-text {
-  max-width: 396px;
-  min-height: 48px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
-}
-
-@media only screen and (min-width: 758px) {
-  .feature-text {
-    width: 356px;
-    height: 72px;
-  }
 }
 
 @media only screen and (min-width: 1158px) {
@@ -492,37 +479,39 @@ button {
 }
 
 .team-container {
-  padding: 96px 0;
+  padding-top: 96px;
 }
 
 .team-list {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 64px;
+  column-gap: 24px;
 }
 
 @media only screen and (min-width: 1158px) {
   .team-list {
-    flex-direction: unset;
+    flex-wrap: nowrap;
+  }
+  .team-container {
+    padding: 0;
   }
 }
 
 .team-section-list {
-  /* width: calc((100% - 72px) / 4); */
-
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   border-radius: 0px 0px 4px 4px;
   background-color: #ffffff;
 }
 
-.team-section-list:not(:last-child) {
-  margin-bottom: 72px;
+@media only screen and (max-width: 767px) {
+  .team-section-list:not(:last-child) {
+    margin-bottom: 72px;
+  }
 }
-
-/* .team-section-list:not(:last-child) {
-  margin-right: 24px;
-} */
 
 .team-section-text {
   padding: 32px 0;
@@ -595,8 +584,13 @@ button {
 /* ===== Custoners ===== */
 
 .customer-section {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-bottom: 96px;
+}
+
+@media only screen and (min-width: 1158px) {
+  .customer-section {
+    padding-bottom: 120px;
+  }
 }
 
 .customer-title {
@@ -613,18 +607,39 @@ button {
 .customer-list {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 72px;
+  column-gap: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .customer-list {
+    column-gap: 24px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .customer-list {
+    flex-wrap: nowrap;
+  }
 }
 
 .customer-link {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 190px;
   height: 88px;
   border: 1px solid #8e8f99;
   border-radius: 4px;
   color: var(--color-customer-link);
   transition: border-color var(--transition-func), color var(--transition-func);
+}
+
+@media only screen and (min-width: 768px) {
+  .customer-link {
+    width: 168px;
+  }
 }
 
 .customer-icon {
@@ -637,31 +652,74 @@ button {
   color: #404bbf;
 }
 
-.customer-item {
-  width: calc((100% - 120px) / 6);
-}
-
 /*===== Footer =====*/
 .page-footer {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  /* padding-top: 100px; */
+  /* padding-bottom: 100px; */
   background: #2e2f42;
 }
 
 .footer-container {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  gap: 72px;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-container {
+    width: 584px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 24px;
+    row-gap: 72px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .footer-container {
+    width: 1158px;
+    column-gap: 0;
+  }
 }
 
 .logo-container {
-  width: 264px;
-  margin-right: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo-container {
+    align-items: unset;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .logo-container {
+    width: 264px;
+    margin-right: 120px;
+  }
 }
 
 .social-container {
-  width: 208px;
-  height: 80px;
-  margin-right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .social-container {
+    align-items: unset;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .social-container {
+    margin-right: 80px;
+  }
 }
 
 .logo-footer {
@@ -674,6 +732,13 @@ button {
   display: inline-block;
   margin-bottom: 16px;
   color: #4d5ae5;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo-footer {
+    text-align: unset;
+  }
 }
 
 .studio-footer {
@@ -687,6 +752,13 @@ button {
 }
 
 .footer-text {
+  width: 268px;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
@@ -695,13 +767,19 @@ button {
 }
 
 .footer-title {
-  display: flex;
   margin-bottom: 16px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #ffffff;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-title {
+    text-align: unset;
+  }
 }
 
 .social-footer {
@@ -724,10 +802,32 @@ button {
 
 /* Footer Subscribe */
 
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .subscribe-container {
+    display: block;
+  }
+}
+
 .subscribe-form {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .subscribe-form {
+    flex-direction: unset;
+    align-items: unset;
+  }
 }
 
 .subscribe-form-title {
@@ -737,17 +837,31 @@ button {
   letter-spacing: 0.02em;
   color: #ffffff;
 }
+
+@media only screen and (min-width: 768px) {
+  .subscribe-form-title {
+    text-align: left;
+  }
+}
+
 .subscribe-form-field {
-  margin-right: 24px;
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .subscribe-form-field {
+    margin-right: 24px;
+    margin-bottom: 0;
+  }
 }
 
 .subscribe-form-input {
-  width: 264px;
+  width: 398px;
   height: 40px;
   border: 1px solid #ffffff;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  padding: 0 16px;
+  padding: 0 15px;
   outline: none;
   transition: var(--transition-func);
   background-color: transparent;
@@ -756,6 +870,18 @@ button {
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #ffffff;
+}
+
+@media only screen and (min-width: 768px) {
+  .subscribe-form-input {
+    width: 268px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+  .subscribe-form-input {
+    width: 262px;
+  }
 }
 
 .subscribe-form-input::placeholder {
@@ -775,8 +901,6 @@ button {
 .subscribe-form-btn {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-width: 165px;
   height: 40px;
   padding: 8px 24px;
 }
